@@ -583,6 +583,11 @@ background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:
 @property --pb-float{syntax:'<length>';inherits:false;initial-value:0px}
 @property --pb-hover{syntax:'<length>';inherits:false;initial-value:0px}
 .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:52px;perspective:1800px;perspective-origin:50% 45%;max-width:760px;margin-left:auto;margin-right:auto}
+.price-grid.three{grid-template-columns:repeat(3,1fr);gap:22px;max-width:1120px}
+.price-grid.three>.pkg-col:nth-child(2){--pb-rot:calc(4deg * var(--pr-damp,1));animation-delay:-1.5s;animation-duration:15.9s}
+.price-ribbon.kamp{background:#b8472f;color:#f2ede4}
+[data-pkg-box="karusell"] .price-title{margin-top:14px}
+@media(max-width:980px){.price-grid.three{grid-template-columns:minmax(0,1fr);perspective:none;max-width:none}.price-grid.three>.pkg-col,.price-grid.three>.pkg-col:first-child,.price-grid.three>.pkg-col:last-child{--pb-rot:0deg;--pb-base-y:0px;--pb-scale:1;transform:none!important}}
 
 /* === PKG-COL — wraps green handle (pkg-boost) + price-box as one tilted stack ===
    Reading-mode physics: cards stay alive (float never stops) but FLATTEN toward the
@@ -1489,9 +1494,56 @@ position:relative;overflow:hidden;transition:color .35s}
   <div class="pr-orb pr-orb-2" aria-hidden="true"></div>
   <div class="pr-inner">
     <p class="sec-lbl rv">Investment</p>
-    <h2 class="sec-h2 ws rv">Two ways to build <em>story and reach.</em></h2>
+    <h2 class="sec-h2 ws rv">Three ways to build <em>story and reach.</em></h2>
 
-    <div class="price-grid">
+    <div class="price-grid three">
+
+      <!-- Carousel Pack -->
+      <div class="pkg-col rv d1" data-pkg-col="karusell">
+        <div class="pkg-boost" role="group" aria-pressed="false" data-pkg="karusell">
+          <button type="button" class="pkg-boost-head" aria-pressed="false" aria-controls="pkg-boost-body-karusell" aria-label="Activate Meta reach for the Carousel Pack">
+            <span class="pkg-boost-switch" aria-hidden="true"></span>
+            <span class="pkg-boost-text">
+              <span class="pkg-boost-tag">Optional &middot; <em>Recommended</em></span>
+              <span class="pkg-boost-title">Activate Meta reach <span class="pkg-boost-price" data-bt-price="karusell">+€1,000</span></span>
+            </span>
+          </button>
+          <div class="pkg-boost-body" id="pkg-boost-body-karusell" aria-hidden="true">
+            <div class="pkg-boost-body-inner">
+              <p class="pkg-boost-desc" data-pkg-desc="karusell">Over <strong class="pkg-boost-stat" data-bt-stat="karusell">150,000</strong> extra impressions! Meta retargeting brings viewers back with a clickable link ON the post directly in Instagram and Facebook &mdash; a seamless path that drives traffic straight to your website.</p>
+              <p class="pkg-boost-desc-zero" data-pkg-desc-zero="karusell" hidden>Drag the slider to a budget below to see how many extra impressions the package delivers.</p>
+              <div class="pkg-slider">
+                <label class="pkg-slider-lbl" for="pk-range-karusell">Meta budget per production</label>
+                <input id="pk-range-karusell" class="pkg-range" type="range" min="0" max="3" step="1" value="2" data-pkg-slider="karusell" aria-label="Meta budget per production for the Carousel Pack"/>
+                <div class="pkg-ticks" aria-hidden="true">
+                  <span class="pkg-tick" data-pkg-tick="karusell" data-step="0">€0</span>
+                  <span class="pkg-tick" data-pkg-tick="karusell" data-step="1">€500</span>
+                  <span class="pkg-tick is-active" data-pkg-tick="karusell" data-step="2">€1,000</span>
+                  <span class="pkg-tick" data-pkg-tick="karusell" data-step="3">€2,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="price-box rv" data-pkg-box="karusell">
+          <i class="pr-bg" data-n="01" aria-hidden="true"></i>
+          <span class="price-ribbon kamp">Selected campaign</span>
+          <h3 class="price-title">Carousel Pack</h3>
+          <p class="price-sub">1 carousel &middot; 2 stories with CTA &middot; 15 lifestyle images</p>
+          <div class="price-plate">
+          <p class="price-total-lbl">Price</p>
+          <p class="price-total" data-base="1550" data-boost="2550">1,550</p>
+          <span class="price-unit">EUR</span>
+          </div>
+          <div class="price-includes">
+            <p class="pi hi"><span>1 carousel published on Villa Sjövik's channels <em class="pi-reach">to 194,000 followers</em></span></p>
+            <p class="pi hi">2 stories with direct link and CTA &mdash; video or photo</p>
+            <p class="pi hi">15 lifestyle images in an authentic home setting</p>
+            <p class="pi">Full media rights &mdash; permanent, brand-owned and paid media</p>
+            <p class="pi">Styling, shooting and editing included</p>
+          </div>
+        </div>
+      </div>
 
       <!-- Starter Pack -->
       <div class="pkg-col rv d1" data-pkg-col="start">
@@ -1521,12 +1573,12 @@ position:relative;overflow:hidden;transition:color .35s}
           </div>
         </div>
         <div class="price-box rv" data-pkg-box="start">
-          <i class="pr-bg" data-n="01" aria-hidden="true"></i>
+          <i class="pr-bg" data-n="02" aria-hidden="true"></i>
           <h3 class="price-title">Starter Pack</h3>
           <p class="price-sub">1 video &middot; 2 stories with CTA &middot; 10 lifestyle images</p>
           <div class="price-plate">
           <p class="price-total-lbl">Price</p>
-          <p class="price-total" data-base="1650" data-boost="2650">1,650</p>
+          <p class="price-total" data-base="1850" data-boost="2850">1,850</p>
           <span class="price-unit">EUR</span>
           </div>
           <div class="price-includes">
@@ -1568,7 +1620,7 @@ position:relative;overflow:hidden;transition:color .35s}
         </div>
         <div class="price-box featured rv" data-pkg-box="season">
           <i class="pr-sheen" aria-hidden="true"></i>
-          <i class="pr-bg" data-n="02" aria-hidden="true"></i>
+          <i class="pr-bg" data-n="03" aria-hidden="true"></i>
           <span class="price-ribbon">Recommended &middot; MOST VALUE</span>
           <h3 class="price-title">Campaign Pack</h3>
           <p class="price-sub">3 videos &middot; 6 stories with CTA &middot; 60 lifestyle images</p>
@@ -2116,8 +2168,8 @@ document.querySelectorAll('.gc,.lc,.sp-c').forEach(card=>{
 
   // Step values: 0 -> €0, 1 -> €500, 2 -> €1,000, 3 -> €2,000
   const STEP_VALUES=[0,500,1000,2000];
-  const cardBudget={start:1000, season:1000};
-  const PKG_MULT={start:1, season:3};
+  const cardBudget={start:1000, season:1000, karusell:1000};
+  const PKG_MULT={start:1, season:3, karusell:1};
 
   function stepFromBudget(b){
     let idx=STEP_VALUES.indexOf(b);
